@@ -1,16 +1,4 @@
 'use strict';
-/**
- * @typedef Users
- * @property {integer} id
- * @property {string} name
- * @property {string} Email
- * @property {string} PhoneNumber
- * @property {string} Address
- * @property {string} KTP
- * @property {string} NPWP
- * @property {string} Passport
- * @property {string} Password - hashed
- */
 module.exports = (sequelize, DataTypes) => {
   const Users = sequelize.define('Users', {
     Name: DataTypes.STRING,

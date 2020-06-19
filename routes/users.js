@@ -241,14 +241,27 @@ router
   })
 
   /**
-   * Deletes user by id
-   * @route GET /users/:id
-   * @group Users
-   * @param {string} email.query.required - username or email - eg: user@domain
-   * @param {string} password.query.required - user's password.
-   * @returns {object} 200 - An array of user info
-   * @returns {Error}  default - Unexpected error
-   */
+  * @swagger
+  * /users/:id:
+  *   delete:
+  *     tags:
+  *       — Users
+  *     summary: This should create a new ice cream.
+  *     description: This is where you can give some background as to why this route is being created or perhaps reference a ticket number.
+  *     consumes:
+  *       — application/json
+  *     parameters:
+  *       — name: body
+  *       in: body
+  *       schema:
+  *         type: object
+  *         properties:
+  *           flavor:
+  *           type: string
+  *     responses: 
+  *       200:
+  *         description: Receive back flavor and flavor Id.
+  */
   .delete('/:id', function(req, res, next) {
     let token = req.headers['authorization']
     if (token.startsWith('Bearer ')) {

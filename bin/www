@@ -8,6 +8,12 @@ var app = require('../app');
 var debug = require('debug')('node-express-example:server');
 var http = require('http');
 
+var cron = require('node-cron');
+var cronjobs = require('../cronjobs/dbcleanup')
+
+
+cron.schedule("*/1 * * * *", function() {cronjobs.dbcleanup()});
+
 /**
  * Get port from environment and store in Express.
  */

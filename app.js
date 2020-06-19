@@ -11,6 +11,9 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+var swaggerUi = require('swagger-ui-express');
+var specs = require('./swagger');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -25,6 +28,8 @@ app.use('/', indexRouter);
 app.use('/register', registerRouter);
 app.use('/auth', authRouter);
 app.use('/users', usersRouter);
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs.default));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
