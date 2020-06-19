@@ -6,7 +6,7 @@ var moment = require('moment');
 const dbcleanup = (days) => {
     console.log("--- Start dbcleanup ---");
     if (!days) {
-        days = 5
+        days = 3
     }
 
     models.Users.destroy({

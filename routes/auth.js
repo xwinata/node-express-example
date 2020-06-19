@@ -5,6 +5,35 @@ var passwordHash = require('password-hash');
 var jwt = require('jsonwebtoken');
 var jwtkey = "ABCDE123456789";
 
+  /**
+  * @swagger
+  * /auth:
+  *   post:
+  *     tags:
+  *       - Public
+  *     summary: patch user by id.
+  *     consumes:
+  *       - application/json
+  *     parameters:
+  *       - in: body
+  *         name: body
+  *         schema:
+  *           type: object
+  *           properties:
+  *             email:
+  *               type: string
+  *               example: email example
+  *               required: true
+  *             password:
+  *               type: string
+  *               example: test123
+  *               required: true
+  *     responses: 
+  *       200:
+  *         description: OK.
+  *       400:
+  *         description: Bad Request.
+  */
 router.post('/', function(req, res, next) {
   let email = req.body.email
   let pass = req.body.password
@@ -23,7 +52,7 @@ router.post('/', function(req, res, next) {
             }
             return
         }
-        res.status(404).json({"message":"email found"})
+        res.status(404).json({"message":"email not found"})
     })
 });
 

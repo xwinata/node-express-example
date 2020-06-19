@@ -61,6 +61,19 @@ describe('Users', function () {
         });
     });
 
+    describe('user versions by id', function () {
+        it("should get user list", (done) => {
+            chai.request(app)
+                .get('/users/versions/2')
+                .set('Authorization', 'Bearer '+token)
+                .end(function(error, response) {
+                    expect(error).to.be.null;
+                    expect(response).to.have.status(200)
+                    done();
+                });
+        });
+    });
+
     describe('create user', function () {
         it("should create a user", (done) => {
             chai.request(app)

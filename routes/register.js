@@ -4,6 +4,55 @@ const { check, validationResult } = require('express-validator');
 var models = require('../models');
 var passwordHash = require('password-hash');
 
+  /**
+  * @swagger
+  * /register:
+  *   post:
+  *     tags:
+  *       - Public
+  *     summary: patch user by id.
+  *     consumes:
+  *       - application/json
+  *     parameters:
+  *       - in: body
+  *         name: body
+  *         schema:
+  *           type: object
+  *           properties:
+  *             name:
+  *               type: string
+  *               example: name example
+  *               required: true
+  *             email:
+  *               type: string
+  *               example: email example
+  *               required: true
+  *             address:
+  *               type: string
+  *               example: address example
+  *               required: true
+  *             ktp:
+  *               type: string
+  *               example: ktp example
+  *               required: true
+  *             npwp:
+  *               type: string
+  *               example: npwp example
+  *               required: true
+  *             passport:
+  *               type: string
+  *               example: passport example
+  *               required: true
+  *             password:
+  *               type: string
+  *               example: test123
+  *               required: true
+  *     responses: 
+  *       200:
+  *         description: OK.
+  *       400:
+  *         description: Bad Request.
+  */
 router.post('/',
     [
         check('name').not().isEmpty(),
